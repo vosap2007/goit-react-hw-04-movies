@@ -1,0 +1,21 @@
+.NavLink {
+    font-size: 20px;
+    color: rgb(39, 5, 5);
+    text-decoration: none;
+}
+
+.NavLink--active {
+    color: rgb(253, 24, 24);
+    text-decoration: underline;
+}
+
+.links {
+    list-style-type: none;
+    display: flex;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+}
+
+.link {
+    margin-right: 20px;
+}
