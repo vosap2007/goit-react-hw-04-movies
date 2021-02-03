@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Axios from "axios";
+import { Link } from "react-router-dom";
 
 class HomeView extends Component {
 state = {
@@ -8,7 +9,7 @@ state = {
 
 async componentDidMount() {
   const response = await Axios.get('https://api.themoviedb.org/3/trending/movie/day?api_key=0516dd3e6a153d51192e61dfe30410f4');
-  console.log(response.data.results);
+  //console.log(response.data.results);
 
   this.setState({movies: response.data.results})
 }
@@ -20,7 +21,8 @@ render() {
 
   <ul>
       {this.state.movies.map(movie => (
-          <li key={movie.id}>{movie.title}</li>
+          <li key={movie.id}>
+              <Link to={`${this.props.match.url}/${movie.id}`}>{movie.title}</Link></li>
       ))}
   </ul>
   </>

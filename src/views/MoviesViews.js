@@ -1,8 +1,18 @@
-import React from "react";
+import React, { Component } from "react";
 //import { Route } from "react-router-dom";
 
-const MoviesView = () => {
-  return <h1>Cтраница поиска фильмов по ключевому слову</h1>;
-};
+export default class MoviesView extends Component {
+    state = {
+    };
 
-export default MoviesView;
+
+  render() { 
+     return (
+      <div>
+          <input tape="text"></input>
+        <button type="submit" className='Button'>Search</button>
+      </div>
+    ); 
+  }
+  
+};

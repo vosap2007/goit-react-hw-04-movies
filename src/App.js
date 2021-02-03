@@ -3,6 +3,7 @@ import { Route, NavLink, Switch } from "react-router-dom";
 import HomeView from "./views/HomeViews";
 import MoviesView from "./views/MoviesViews";
 import NotFound from "./views/NotFoundViews";
+import MovieDetailsViews from "./views/MovieDetailsViews";
 import styles from './styles/link.css';
 
 const App = () => (
@@ -25,6 +26,7 @@ const App = () => (
     </ul>
 <Switch>
   <Route exact path='/' component={HomeView} />
+  <Route path='/:movieId' component={MovieDetailsViews} />
   <Route path='/movies' component={MoviesView} />
   <Route component={NotFound} />
   </Switch>
