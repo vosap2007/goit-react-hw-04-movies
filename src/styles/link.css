@@ -16,6 +16,30 @@
   padding: 10px;
 }
 
+.linksline {
+    list-style-type: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+}
+
 .link {
+
     margin-right: 20px;
+}
+
+.SectionDetalis {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.SectionDetalisText {
+    margin-left: 20px;
+}
+
+.Button {
+    margin-bottom: 15px;
+}
+
+.baut {
+
 }
