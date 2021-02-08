@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import Axios from "axios";
 import { NavLink, Route } from "react-router-dom";
 import Actors from "../Component/Actors";
+import Reviews from "../Component/Reviews";
 
 class MovieDetailsViews extends Component {
 state = {
@@ -17,7 +18,7 @@ state = {
 async componentDidMount() {
     const { movieId } = this.props.match.params;
     const response = await Axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=0516dd3e6a153d51192e61dfe30410f4`);
-    console.log(response.data);
+
     this.setState({...response.data});
   }
 
@@ -25,7 +26,8 @@ render() {
     
   return (
   <>
-  <button type="submit" className='Button'>&#10939; Go back</button>
+  <a href="/" class="btn">&#10939; Go back</a>
+
   <div className='SectionDetalis'>
   <img src={`https://image.tmdb.org/t/p/w300${this.state.poster_path}`} alt={`${this.state.title}`} />
   <div className='SectionDetalisText'>
@@ -48,15 +50,19 @@ render() {
             <NavLink to={`${this.props.match.url}/cast`}>Cast</NavLink>
             </li>
         <li>
-            <NavLink to='/movies/:movieId/reviews'>Reviews</NavLink>
+            <NavLink to={`${this.props.match.url}/reviews`}>Reviews</NavLink>
             </li>
         
     </ul>
 </div>
-<Route path={`${this.props.match.path}/:castId`} component={Actors}/>
-<Route path="/movies/:movieId/reviews" render={() => <h2>Информация об обзорах</h2>}/>
+<Route path={`${this.props.match.path}/cast`} component={Actors}/>
+<Route path={`${this.props.match.path}/reviews`} component={Reviews}/>
   </>)
 }
 };
 
 export default MovieDetailsViews;
+
+/*<form action="/" target="_blank">
+  <button className='Button'>&#10939; Go back</button>
+  </form>*/

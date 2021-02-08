@@ -40,6 +40,22 @@
     margin-bottom: 15px;
 }
 
-.baut {
+.btn {
+    display: inline-block;
+    background: #8d8d8d;
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 3px;
+    margin-bottom: 15px;
+   }
 
+.ListActors {
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.ListCharacter {
+    color: rgb(61, 59, 59);
+    font-weight: lighter;
 }
