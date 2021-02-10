@@ -9,9 +9,14 @@ export default class Reviews extends Component {
     async componentDidMount() {
         const { movieId } = this.props.match.params;
         const response = await Axios.get(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=0516dd3e6a153d51192e61dfe30410f4`);
-            console.log(response.data);
+            //console.log(response.data);
 
           this.setState({ ...response.data });
+
+          window.scrollTo({
+            top: document.documentElement.scrollHeight,
+            behavior: "smooth",
+          });
       }
 
 
