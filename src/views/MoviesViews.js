@@ -41,7 +41,7 @@ export default class MoviesView extends Component {
 
 
   render() { 
-    console.log(this.state.moviesParam);
+    
      return (
          <>
         <div className="SearchForm">

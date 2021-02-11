@@ -1,35 +1,28 @@
-import React from "react";
+import React, {Suspense, lazy} from "react";
 import { Route, NavLink, Switch } from "react-router-dom";
-import HomeView from "./views/HomeViews";
-import MoviesView from "./views/MoviesViews";
+//import HomeView from "./views/HomeViews";
+//import MoviesView from "./views/MoviesViews";
 import NotFound from "./views/NotFoundViews";
-import MovieDetailsViews from "./views/MovieDetailsViews";
+//import MovieDetailsViews from "./views/MovieDetailsViews";
+import AppBar from "./Component/APP bar/AppBar";
+import routes from './routes';
 import styles from './styles/link.css';
+
+const HomeView = lazy(() => import('./views/HomeViews.js' /* webpackChunkName: "HomeViews" */));
+const MoviesViews = lazy(() => import('./views/MoviesViews.js' /* webpackChunkName: "MoviesViews" */));
+const MovieDetailsViews = lazy(() => import('./views/MovieDetailsViews.js' /* webpackChunkName: "MovieDetailsViews" */));
 
 const App = () => (
   <>
-<ul className='links'> 
-  <li className='link'>
-  <NavLink
-   exact to='/'
-  className='NavLink'
-  activeClassName='NavLink--active'
-  >Home</NavLink>
-    </li>
-    <li className='link'>
-    <NavLink 
-    to='/movies'
-    className='NavLink'
-    activeClassName='NavLink--active'
-    >Movies</NavLink>
-    </li>
-    </ul>
+<AppBar/>
+<Suspense fallback={<h1>Загружаем...</h1>}>
 <Switch>
-  <Route exact path='/' component={HomeView} />
-  <Route path='/movies/:movieId' component={MovieDetailsViews} />
-  <Route path='/movies' component={MoviesView} />
+  <Route exact path={routes.home} component={HomeView} />
+  <Route path={routes.MovieDetailsViews} component={MovieDetailsViews} />
+  <Route path={routes.MoviesView} component={MoviesViews} />
   <Route component={NotFound} />
   </Switch>
+  </Suspense>
   </>
 );
 

@@ -22,11 +22,15 @@ async componentDidMount() {
     this.setState({...response.data});
   }
 
+  goBack = () => {
+    this.props.history.push(this.props.location?.state?.from || "/")
+  };
+
 render() {
     
   return (
   <>
-  <a href="/" class="btn">&#10939; Go back</a>
+  <a type='button' /*href="/"*/ onClick={this.goBack} class="btn">&#10939; Go back</a>
 
   <div className='SectionDetalis'>
   <img src={`https://image.tmdb.org/t/p/w300${this.state.poster_path}`} alt={`${this.state.title}`} />
